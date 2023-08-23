@@ -1,0 +1,31 @@
+<div>
+    <h1 style="text-align: center">All Employess Report</h1>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th>Doctor Name</th>
+          <th>Date</th>
+          <th>Time In</th>
+          <th>Time Out</th>
+          <th>Hours</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let timecard of timecards">
+            <td>{{timecard.doctor.firstName}} {{timecard.doctor.lastName}}</td>
+            <td>{{timecard.date}}</td>
+            <td>{{timecard.time[0].hour}}:{{timecard.time[0].minute}}</td>
+            <td>{{timecard.time[1].hour}}:{{timecard.time[1].minute}}</td>
+            <td>{{timecard.hours}}</td>
+        </tr>
+    </tbody>
+</table>
+  
+  
+
+
+
+
+

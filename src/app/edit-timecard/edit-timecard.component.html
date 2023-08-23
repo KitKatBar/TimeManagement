@@ -1,0 +1,35 @@
+<div class="header">
+  <h1>Editing Timecard</h1>
+  <!-- <h1 *ngIf="doctor">Editing Timecard for {{doctor.firstName}} {{doctor.lastName}}:
+    (File Number: {{doctor.fileNumber}}) </h1> -->
+</div>
+
+<div class="content">
+    <form #timecardForm="ngForm" (ngSubmit)="update(punchinandout.id,punchinandout)">
+      
+        
+      <mat-form-field appearance="fill">
+        <mat-label>Edit Date</mat-label>
+        <input matInput [matDatepicker]="picker"   formControlName="date"/>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+      
+      <br>
+      <mat-label>Edit Start Time</mat-label>
+        <ngb-timepicker formControlName="startTime" [meridian]="meridian" ></ngb-timepicker>
+      
+
+      <mat-label>Edit End Time</mat-label>
+          <ngb-timepicker formControlName="endTime" [meridian]="meridian" ></ngb-timepicker>
+        
+      
+      <button [disabled]="timecardForm.invalid" type="submit"
+        mat-flat-button color="accent">Update</button>
+      </form>
+      
+  
+  
+  
+  </div>

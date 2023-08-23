@@ -1,0 +1,41 @@
+
+<div class="basic-container">
+    <!-- <mat-sidenav-container class="example-container">
+      <mat-sidenav #sidenav class="example-sidenav" >
+        <mat-nav-list>
+            <a mat-list-item routerLink="/admin-list">
+              <mat-icon>format_list_bulleted</mat-icon>Users
+            </a>
+            <a mat-list-item routerLink="/doctor-list">
+              <mat-icon>format_list_bulleted</mat-icon>Master Data
+            </a>
+            
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <button type="button" md-button (click)="sidenav.open()">
+            admin features
+      </button>
+      </mat-sidenav-content>
+    </mat-sidenav-container> -->
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'"
+    [(opened)]="opened" [fixedInViewport]="true" [fixedTopGap]>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/administration/admin-list">
+          <mat-icon>format_list_bulleted</mat-icon>Users
+        </a>
+        <a mat-list-item routerLink="/administration/doctor-list">
+          <mat-icon>format_list_bulleted</mat-icon>Master Data
+        </a>
+      
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+    
+
+</div>

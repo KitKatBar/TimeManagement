@@ -1,0 +1,22 @@
+<h2>Master Data</h2>
+<button mat-button routerLink="/administration/add-doctor">Add Doctor</button>
+<div class="container">
+    <table class="table">
+        <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>File Number</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let doctor of doctors">
+                <td>{{doctor.firstName}}</td>
+                <td>{{doctor.lastName}}</td>
+                <td>{{doctor.fileNumber}}</td>
+                <td><button mat-raised-button color="primary" (click)="editDoctor(doctor)">Edit</button></td>
+                <td><button mat-raised-button color="warn" (click)="deleteDoctor(doctor)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

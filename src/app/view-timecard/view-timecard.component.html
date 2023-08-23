@@ -1,0 +1,27 @@
+<h2 *ngIf="doctor">Viewing Timecards for {{doctor.firstName}} {{doctor.lastName}}:
+  (File Number: {{doctor.fileNumber}})</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <!-- <th>Doctor name</th> -->
+          <th>Date</th>
+          <th>Time in</th>
+          <th>Time out</th>
+          <th>Hours</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let timecard of doctor.timecard">
+          <!-- <td>{{timecard.doctor.firstName}}</td> -->
+            <td>{{timecard.date}}</td>
+            <td>{{timecard.time[0].hour}}:{{timecard.time[0].minute}}</td>
+            <td>{{timecard.time[1].hour}}:{{timecard.time[1].minute}}</td>
+            <td>{{timecard.hours}}</td>
+            <td><button mat-raised-button color="primary" (click)="editTimecard(timecard)">Edit</button></td>
+            <td><button mat-raised-button color="warn" (click)="deleteTimecard(timecard)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>

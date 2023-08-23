@@ -1,0 +1,19 @@
+<h2>Users</h2>
+<button mat-button routerLink="/administration/add-admin">Add User</button>
+<div class="container">
+    <table class="table">
+        <thead>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let admin of admins">
+                <td><button mat-button (click)="editAdmin(admin)">
+                    {{admin.firstName}} {{admin.lastName}}</button></td>
+                <td>{{admin.description}}</td>
+                <td><button mat-raised-button color="warn" (click)="deleteAdmin(admin)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

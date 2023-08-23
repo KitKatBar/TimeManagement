@@ -1,0 +1,51 @@
+<mat-card>
+    <h2>Edit Doctor</h2>
+    <form #doctorForm="ngForm" (ngSubmit)="update(doctor.id, doctor)" novalidate>
+  
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" #firstName="ngModel" required minlength="3" 
+            class="form-control" name="firstName" [(ngModel)]="doctor.firstName"
+            [class.is-invalid]="firstName.invalid && firstName.touched">
+            <div *ngIf="firstName.touched && firstName.errors">
+              <div class="alert alert-danger" 
+              *ngIf="firstName.errors.required">First Name is required</div>
+              <div class="alert alert-danger" 
+              *ngIf="firstName.errors.minlength">First Name should be at least 3 characters long</div>
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" #lastName="ngModel" required minlength="3" 
+            class="form-control" name="lastName" [(ngModel)]="doctor.lastName"
+            [class.is-invalid]="lastName.invalid && lastName.touched">
+            <div *ngIf="lastName.touched && lastName.errors">
+              <div class="alert alert-danger" 
+              *ngIf="lastName.errors.required">Last Name is required</div>
+              <div class="alert alert-danger" 
+              *ngIf="lastName.errors.minlength">Last Name should be at least 3 characters long</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>File Number</label>
+            <input type="text" #fileNumber="ngModel" required pattern="^[0-9]+$"
+            class="form-control" name="fileNumber" [(ngModel)]="doctor.fileNumber"
+            [class.is-invalid]="fileNumber.invalid && fileNumber.touched">
+            <div *ngIf="fileNumber.touched && fileNumber.errors"> 
+              <div class="alert alert-danger"
+              *ngIf="fileNumber.errors.required">File Number is required</div>      
+              <div class="alert alert-danger"
+              *ngIf="fileNumber.errors.pattern">File Number must be Numbers</div>    
+            </div>
+        </div>
+      <button mat-flat-button color="accent" [disabled]="doctorForm.form.invalid"
+      type="submit">Update</button>
+    </form>
+  </mat-card>
+      <br>
+       
+        <div class="alert alert-danger" *ngIf="errorMsg">
+          {{errorMsg}}
+        </div>

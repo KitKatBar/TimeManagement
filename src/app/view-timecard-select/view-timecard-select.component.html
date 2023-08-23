@@ -1,0 +1,20 @@
+
+<button mat-button routerLink="/timecardmanagement/add-timecard-select">Add Timecard</button>
+
+<h2>List of Doctors (View Timecard)</h2>
+<div class="container">
+    <table class="table">
+        <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>View Timecard</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let doctor of doctors">
+                <td>{{doctor.firstName}}</td>
+                <td>{{doctor.lastName}}</td>
+                <td><button mat-raised-button color="primary" (click)="viewTimecard(doctor)">View</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

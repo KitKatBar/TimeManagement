@@ -1,0 +1,77 @@
+<mat-card>
+    <h2>Edit Doctor</h2>
+    <form #adminForm="ngForm" (ngSubmit)="update(admin.id, admin)" novalidate>
+  
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" #firstName="ngModel" required minlength="3" 
+            class="form-control" name="firstName" [(ngModel)]="admin.firstName"
+            [class.is-invalid]="firstName.invalid && firstName.touched">
+            <div *ngIf="firstName.touched && firstName.errors">
+              <div class="alert alert-danger" 
+              *ngIf="firstName.errors.required">First Name is required</div>
+              <div class="alert alert-danger" 
+              *ngIf="firstName.errors.minlength">First Name should be at least 3 characters long</div>
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" #lastName="ngModel" required minlength="3" 
+            class="form-control" name="lastName" [(ngModel)]="admin.lastName"
+            [class.is-invalid]="lastName.invalid && lastName.touched">
+            <div *ngIf="lastName.touched && lastName.errors">
+              <div class="alert alert-danger" 
+              *ngIf="lastName.errors.required">Last Name is required</div>
+              <div class="alert alert-danger" 
+              *ngIf="lastName.errors.minlength">Last Name should be at least 3 characters long</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" #description="ngModel" required minlength="3" 
+            class="form-control" name="description" [(ngModel)]="admin.description"
+            [class.is-invalid]="description.invalid && description.touched">
+            <div *ngIf="description.touched && description.errors">
+              <div class="alert alert-danger" 
+              *ngIf="description.errors.required">Email is required</div>
+              <div class="alert alert-danger" 
+              *ngIf="description.errors.minlength">Email should be at least 5 characters long</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" #email="ngModel" required minlength="3" 
+            class="form-control" name="email" [(ngModel)]="admin.email"
+            [class.is-invalid]="email.invalid && email.touched">
+            <div *ngIf="email.touched && email.errors">
+              <div class="alert alert-danger" 
+              *ngIf="email.errors.required">Password is required</div>
+              <div class="alert alert-danger" 
+              *ngIf="email.errors.minlength">Password should be at least 5 characters long</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" #password="ngModel" required minlength="3" 
+            class="form-control" name="password" [(ngModel)]="admin.password"
+            [class.is-invalid]="password.invalid && password.touched">
+            <div *ngIf="password.touched && password.errors">
+              <div class="alert alert-danger" 
+              *ngIf="password.errors.required">Last Name is required</div>
+              <div class="alert alert-danger" 
+              *ngIf="password.errors.minlength">Last Name should be at least 3 characters long</div>
+            </div>
+        </div>
+      <button mat-flat-button color="accent" [disabled]="adminForm.form.invalid"
+      type="submit">Update</button>
+    </form>
+  </mat-card>
+      <br>
+       
+        <div class="alert alert-danger" *ngIf="errorMsg">
+          {{errorMsg}}
+        </div>

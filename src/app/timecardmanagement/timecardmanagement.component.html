@@ -1,0 +1,39 @@
+<!-- <div>
+    hhh
+</div>
+
+<div>
+    ttt
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th>Doctor name</th>
+          <th>Time in</th>
+          <th>Time out</th>
+          <th>Hours</th>
+          <th>View</th>
+        </tr>
+      </thead>
+</table> -->
+
+<div>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'"
+    [(opened)]="opened" [fixedInViewport]="true" [fixedTopGap]>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/timecardmanagement/view-timecard-select">
+          <mat-icon>format_list_bulleted</mat-icon>View Timecard
+        </a>
+        <a mat-list-item routerLink="/timecardmanagement/add-timecard-select">
+          <mat-icon>add</mat-icon>New Timecard
+        </a>
+      
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
